@@ -7,10 +7,8 @@ Este proyecto implementa un algoritmo para eliminar la recursividad directa por 
 - [Descripción del Proyecto](#descripción-del-proyecto)
 - [Cómo Funciona](#cómo-funciona)
 - [Instrucciones de Uso](#instrucciones-de-uso)
-- [Ejemplos de Uso](#ejemplos-de-uso)
+- [Ejemplo de Uso](#ejemplos-de-uso)
   - [Caso de Prueba 3: Recursividad Directa Compleja](#caso-de-prueba-3-recursividad-directa-compleja)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
 
 ## Descripción del Proyecto
 
@@ -73,6 +71,38 @@ El algoritmo se compone de las siguientes funciones clave:
 - Llama a leer_gramatica para cargar la gramática desde un archivo.
 - Llama a eliminar_recursividad_indirecta para eliminar cualquier tipo de recursividad.
 - Finalmente, llama a escribir_gramatica para guardar la gramática transformada en un nuevo archivo.
+
+## Instrucciones de Uso
+
+Para utilizar el algoritmo de eliminación de recursividad en gramáticas, sigue estos pasos:
+
+1. **Prepara la Gramática**:
+   - Crea un archivo de texto (por ejemplo, `gramatica.txt`) que contenga la gramática que deseas procesar.
+   - Asegúrate de que la gramática esté en el formato correcto, con cada producción en una nueva línea. Por ejemplo:
+     ```
+     E -> E + T | E - T | T
+     T -> T * F | T / F | F
+     F -> ( E ) | id
+     ```
+
+2. **Ejecuta el Script**:
+   - Asegúrate de tener Python instalado en tu sistema.
+   - Abre una terminal o línea de comandos.
+   - Navega hasta el directorio donde se encuentra el archivo Python (por ejemplo, `eliminar_recursividad.py`).
+   - Ejecuta el script con el siguiente comando:
+     ```bash
+     python eliminar_recursividad.py
+     ```
+   - El script procesará la gramática y generará un archivo de salida (por ejemplo, `gramatica_sin_recursividad.txt`), que contendrá la gramática transformada sin recursión.
+
+3. **Revisa la Salida**:
+   - Abre el archivo de salida generado para ver la gramática sin recursividad.
+   - La salida mostrará la gramática en un formato adecuado para el análisis sintáctico descendente LL(1).
+
+## Ejemplo de Uso
+
+Supongamos que tienes la siguiente gramática en `gramatica.txt`:
+
 
 
 
