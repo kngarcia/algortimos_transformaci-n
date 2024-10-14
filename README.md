@@ -13,7 +13,7 @@ Este proyecto implementa un algoritmo para eliminar la recursividad directa por 
 - [Descripción del Proyecto](#descripción-del-proyecto)
 - [Cómo Funciona](#cómo-funciona)
 - [Instrucciones de Uso](#instrucciones-de-uso)
-- [Ejemplo de Uso](#ejemplos-de-uso)
+- [Ejemplo de Uso](#ejemplo-de-uso)
 
 ## Descripción del Proyecto
 
@@ -21,7 +21,7 @@ Este algoritmo toma como entrada una gramática en un archivo de texto y transfo
 
 ## Cómo Funciona
 
-El algoritmo se compone de las siguientes funciones clave:
+El algoritmo que se ubica en el archivo `transformación.py` se compone de las siguientes funciones clave:
 
 1. **leer_gramatica**: Lee la gramática desde un archivo de texto y la convierte en un diccionario de producciones.
 2. **escribir_gramatica**: Escribe la gramática transformada en un archivo de salida.
