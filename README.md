@@ -1,5 +1,11 @@
 # Eliminación de Recursividad Izquierda en Gramáticas
 
+## Integrantes:
+- Camilo López
+- Juan Jose Marquéz
+- Kevin García
+- Miguel Fernández
+
 Este proyecto implementa un algoritmo para eliminar la recursividad directa por la izquierda de gramáticas. La recursividad izquierda representa un problema en los analizadores sintácticos descendentes LL(1), por lo que es esencial transformarlas en una forma que pueda ser manejada por tales analizadores.
 
 ## Tabla de Contenidos
