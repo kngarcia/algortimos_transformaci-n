@@ -8,7 +8,6 @@ Este proyecto implementa un algoritmo para eliminar la recursividad directa por 
 - [Cómo Funciona](#cómo-funciona)
 - [Instrucciones de Uso](#instrucciones-de-uso)
 - [Ejemplo de Uso](#ejemplos-de-uso)
-  - [Caso de Prueba 3: Recursividad Directa Compleja](#caso-de-prueba-3-recursividad-directa-compleja)
 
 ## Descripción del Proyecto
 
@@ -101,8 +100,30 @@ Para utilizar el algoritmo de eliminación de recursividad en gramáticas, sigue
 
 ## Ejemplo de Uso
 
-Supongamos que tienes la siguiente gramática en `gramatica.txt`:
+### Paso 1: Preparar la Gramática
 
+Crea un archivo de texto llamado `gramatica.txt` y añade de la carpeta de `casos_de_prueba` alguna gramática con recursión izquierda directa, para este ejemplo utilizaremos el caso de prueba 3:
+```
+E -> E + T | E - T | T
+T -> T * F | T / F | F
+F -> ( E ) | id
+```
+### Paso 2: Ejecutar el Script
 
+Una vez que hayas creado el archivo, abre una terminal y navega hasta el directorio donde se encuentra el archivo `eliminar_recursividad.py`. Ejecuta el script con el siguiente comando:
 
+```bash
+python eliminar_recursividad.py
+```
+
+### Paso 3: Revisar el Archivo de Salida
+
+Después de ejecutar el script, se generará un archivo llamado gramatica_sin_recursividad.txt. Abre este archivo para ver la gramática transformada, que debería verse así:
+```
+E -> T E'
+E' -> + T E' | - T E' | λ
+T -> F T'
+T' -> * F T' | / F T' | λ
+F -> ( E ) | id
+``
 
