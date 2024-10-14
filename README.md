@@ -61,7 +61,7 @@ El algoritmo se compone de las siguientes funciones clave:
 - Si se encuentra una recursión indirecta, reemplaza la producción del no terminal que contiene la recursión con las producciones de los no terminales implicados,      ajustando las producciones para eliminar la recursión.
 - Llama a eliminar_recursividad_izquierda después de procesar las recursiones indirectas para asegurarse de que no haya recursividad directa restante.
 
-### 5. procesar_gramatica(archivo_entrada, archivo_salida)
+### 5. `procesar_gramatica(archivo_entrada, archivo_salida)`
 
 **Descripción**: Esta es la función principal que coordina todo el proceso de transformación de la gramática.
 
@@ -103,6 +103,7 @@ Para utilizar el algoritmo de eliminación de recursividad en gramáticas, sigue
 ### Paso 1: Preparar la Gramática
 
 Crea un archivo de texto llamado `gramatica.txt` y añade de la carpeta de `casos_de_prueba` alguna gramática con recursión izquierda directa, para este ejemplo utilizaremos el caso de prueba 3:
+
 ```
 E -> E + T | E - T | T
 T -> T * F | T / F | F
@@ -125,5 +126,52 @@ E' -> + T E' | - T E' | λ
 T -> F T'
 T' -> * F T' | / F T' | λ
 F -> ( E ) | id
-``
+```
+
+
+### Proceso de Transformación
+
+1. **Identificación de Recursividad Izquierda Directa**:
+   - En la producción `E -> E + T` y `E -> E - T`, se observa que el no terminal `E` se llama a sí mismo como el primer símbolo en sus producciones, lo que indica recursividad izquierda directa.
+   - Similarmente, para `T`, las producciones `T -> T * F` y `T -> T / F` también muestran recursividad izquierda directa.
+
+2. **Transformación de la Producción `E`**:
+   - Separar las producciones en recursivas y no recursivas:
+     - Recursivas: `E + T`, `E - T`
+     - No recursivas: `T`
+   - Introducir un nuevo no terminal `E'` para manejar la recursividad:
+     ```
+     E -> T E'
+     E' -> + T E' | - T E' | λ
+     ```
+
+3. **Transformación de la Producción `T`**:
+   - Hacer lo mismo para `T`:
+     - Recursivas: `T * F`, `T / F`
+     - No recursivas: `F`
+   - Introducir un nuevo no terminal `T'`:
+     ```
+     T -> F T'
+     T' -> * F T' | / F T' | λ
+     ```
+
+4. **Producción de `F`**:
+   - La producción `F` no contiene recursividad y se mantiene igual:
+     ```
+     F -> ( E ) | id
+     ```
+
+### Resultados de la Transformación
+
+La nueva gramática es adecuada para el análisis sintáctico descendente LL(1) y elimina cualquier recursividad que podría causar problemas durante el análisis.
+
+Esta transformación asegura que cada no terminal esté definido sin recursión izquierda, permitiendo así que un analizador sintáctico LL(1) procese correctamente las expresiones.
+
+### Consideraciones Finales
+
+- La eliminación de la recursividad izquierda es crucial para la construcción de analizadores sintácticos LL(1), ya que permite un análisis predictivo.
+- Asegúrate de que la gramática de entrada esté correctamente formateada para obtener resultados precisos.
+
+
+
 
