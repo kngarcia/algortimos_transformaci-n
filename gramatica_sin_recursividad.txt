@@ -1,2 +1,5 @@
-A -> a | b
-B -> c | d
+E -> TE'
+T -> FT'
+F -> ( E ) | id
+E' ->  + TE' |  - TE' | lambda
+T' ->  * FT' |  / FT' | lambda
