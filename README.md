@@ -26,8 +26,17 @@ El algoritmo se compone de las siguientes funciones clave:
 4. **eliminar_recursividad_indirecta**: Elimina la recursividad indirecta de una gramática.
 5. **procesar_gramatica**: Función principal que ejecuta el proceso de eliminación de recursividad.
 
-## Instrucciones de Uso
+### 1. `leer_gramatica(archivo)
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tu_usuario/eliminacion_recursividad.git
+**Descripción**: Esta función lee una gramática desde un archivo de texto. La gramática debe estar en el formato `A -> producciones`, donde `A` es un no terminal y `producciones` son las diferentes producciones separadas por el símbolo `|`.
+
+**Funcionamiento**:
+- Abre el archivo especificado en modo lectura.
+- Lee cada línea del archivo y separa el no terminal de sus producciones.
+- Almacena la información en un diccionario, donde las claves son los no terminales y los valores son listas de sus respectivas producciones.
+
+
+
+
+
+
